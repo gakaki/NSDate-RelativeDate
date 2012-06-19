@@ -1,3 +1,5 @@
+Thank You digdog  i add some chinese translate to the repo
+
 # NSDate (RelativeDate)
 A category to extend Cocoa's NSDate class with relative date function
 

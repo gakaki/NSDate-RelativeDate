@@ -37,7 +37,8 @@
     
     NSDateComponents *components = [calendar components:unitFlags fromDate:self toDate:[NSDate date] options:0];
     
-    NSArray *selectorNames = [NSArray arrayWithObjects:@"year", @"month", @"week", @"day", @"hour", @"minute", @"second", nil];
+    NSArray *selectorNames = [NSArray arrayWithObjects:@"年", @"月", @"星期", @"日", @"小时", @"分钟", @"秒", nil];
+    //NSArray *selectorNames = [NSArray arrayWithObjects:@"year", @"month", @"week", @"day", @"hour", @"minute", @"second", nil];
     
     for (NSString *selectorName in selectorNames) {
         SEL currentSelector = NSSelectorFromString(selectorName);
@@ -53,14 +54,16 @@
         
         if (relativeNumber && relativeNumber != INT32_MAX) {
             if (relativeNumber > 1) {
-                return [NSString stringWithFormat:@"%d %@s ago", relativeNumber, NSLocalizedString(selectorName, nil)];
+	            	//return [NSString stringWithFormat:@"%d %@s ago", relativeNumber, NSLocalizedString(selectorName, nil)];
+                return [NSString stringWithFormat:@"%d %@s 前", relativeNumber, NSLocalizedString(selectorName, nil)];
             } else {
-                return [NSString stringWithFormat:@"%d %@ ago", relativeNumber, NSLocalizedString(selectorName, nil)];
+								//return [NSString stringWithFormat:@"%d %@ ago", relativeNumber, NSLocalizedString(selectorName, nil)];
+                return [NSString stringWithFormat:@"%d %@ 前", relativeNumber, NSLocalizedString(selectorName, nil)];
             }
         }
     }
     
-    return @"now";
+    return @"刚刚";
 }
 
 @end
